@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://xnvznmskrkjpebmqbuca.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<title>Minhas Pendências</title><link rel="stylesheet" href="styles.css"><script src="config.js" defer></script><script src="app.js" defer></script></head>
+<body>
+<main id="auth" class="login-wrap">
+ <section class="login-card">
+  <div class="logo">▤</div><span class="eyebrow">ACESSO PRIVADO</span><h1>Minhas Pendências<span class="slashes">///</span></h1>
+  <p>Um espaço organizado para suas tarefas do dia a dia.</p>
+  <form id="loginForm"><label for="email">E-mail</label><input id="email" type="email" autocomplete="username" required placeholder="seu@email.com">
+    <label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" required minlength="6" placeholder="Sua senha">
+    <p id="loginError" class="error"></p><button class="primary full" type="submit">Entrar no painel →</button></form>
+  <small>Conexão protegida · Login individual</small>
+ </section>
+</main>
+<main id="board" hidden>
+ <header class="hero"><div class="hero-inner"><div class="hero-title"><span class="hero-icon">▤</span><div><h1>Minhas Pendências <span class="slashes">///</span></h1><p>Organize e acompanhe suas tarefas</p></div></div><div class="top-badge">☕ &nbsp;Um dia de cada vez</div></div></header>
+ <div class="workspace">
+  <div class="toolbar"><div class="search"><span>⌕</span><input type="search" id="search" placeholder="Buscar paciente ou pendência..." autocomplete="off"></div><span id="counter" class="counter">0 pendências</span><button id="newPatient" class="primary">＋ Novo paciente</button><button id="signOut" class="secondary" title="Sair">Sair</button></div>
+  <div class="section-heading"><div><h2>Seu mural <span class="small-spark">✳</span></h2><p>Prioridades primeiro. Um check e a tarefa desaparece.</p></div></div>
+  <p id="status" class="status" role="status"></p>
+  <div id="cards" class="cards"></div>
+  <div id="empty" class="empty" hidden><div class="empty-symbol">◫</div><h3>Tudo em ordem por aqui!</h3><p>Adicione um paciente para começar.</p></div>
+ </div>
+</main>
+<dialog id="editor"><form id="patientForm" method="dialog"><div class="modal-head"><div><span class="eyebrow">CARTÃO</span><h2 id="dialogTitle">Novo paciente</h2></div><button type="button" id="closeDialog" class="secondary">✕</button></div>
+  <label for="patientName">Nome ou identificador</label><input id="patientName" required maxlength="90" placeholder="Ex.: Paciente A">
+  <label for="priority">Prioridade</label><select id="priority"><option value="low">🟢 Baixa</option><option value="moderate">🟡 Moderada</option><option value="urgent">🔴 Urgente</option></select>
+  <div id="newTaskField"><label for="tasksInput">Pendências (uma por linha)</label><textarea id="tasksInput" rows="5" maxlength="5000" placeholder="Conversar com psicóloga&#10;Adicionar ao SISREG"></textarea></div>
+  <p id="formError" class="error"></p><div class="modal-actions"><button id="cancelEditor" type="button" class="secondary">Cancelar</button><button type="submit" class="primary" id="saveButton">Salvar</button></div>
+</form></dialog>
+<dialog id="addTaskDialog"><form id="addTaskForm" method="dialog"><div class="modal-head"><h2>Adicionar pendência</h2><button id="cancelTask" type="button" class="secondary">✕</button></div><label for="taskText">Descrição</label><textarea id="taskText" maxlength="280" rows="3" required placeholder="O que falta fazer?"></textarea><p id="taskError" class="error"></p><div class="modal-actions"><button class="primary" type="submit">Adicionar</button></div></form></dialog>
+<footer>Minhas Pendências <span>·</span> Sem histórico de concluídas</footer>
+</body></html>
